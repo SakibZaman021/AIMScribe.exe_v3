@@ -1,0 +1,32 @@
+# Real configuration. Holds the local API key and the machine's enrolment.
+# Never commit this; copy .env.example and fill it in on the machine itself.
+.env
+.env.local
+.env.*.local
+
+# Build output
+build/
+dist/
+*.pyc
+__pycache__/
+*.egg-info/
+Output/
+
+# Recorded audio and spool data must never reach a repository
+temp_clips/
+spool/
+*.wav
+*.flac
+
+# Device identity, created at enrolment on each machine
+keys/device_*
+keys/*_priv.pem
+keys/*private*
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+*.log
