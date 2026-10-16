@@ -23,6 +23,8 @@ a = Analysis(
 )
 pyz = PYZ(a.pure)
 
+# No UPX. Compressed DLLs are unpacked on every launch and make antivirus scan
+# each one in full, which is slow start-up on exactly the laptops clinics have.
 exe = EXE(
     pyz,
     a.scripts,
@@ -32,7 +34,7 @@ exe = EXE(
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
-    upx=True,
+    upx=False,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
@@ -47,7 +49,7 @@ coll = COLLECT(
     a.binaries,
     a.datas,
     strip=False,
-    upx=True,
+    upx=False,
     upx_exclude=[],
     name='AIMScribe_Agent',
 )
